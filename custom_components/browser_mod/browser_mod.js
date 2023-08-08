@@ -142,7 +142,10 @@ const e="undefined"!=typeof globalThis&&globalThis||"undefined"!=typeof self&&se
         --padding-x: var(--popup-padding-x, 24px);
         --padding-y: var(--popup-padding-y, 20px);
       }
-
+      
+      .content {
+        outline: none;
+      }
       .content .container {
         padding: 8px 24px 20px 24px;
       }
