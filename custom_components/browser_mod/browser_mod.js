@@ -134,8 +134,8 @@ const e="undefined"!=typeof globalThis&&globalThis||"undefined"!=typeof self&&se
       ha-dialog {
         --dialog-surface-position: static;
         --dialog-content-position: static;
-        --vertical-align-dialog: flex-start;
-        --dialog-surface-margin-top: 40px;
+        --vertical-align-dialog: center;
+        --dialog-surface-margin-top: 0;
         --dialog-content-padding: 0;
 
         --ha-dialog-border-radius: var(--popup-border-radius, 28px);
