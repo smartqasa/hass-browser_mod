@@ -147,10 +147,10 @@ const e="undefined"!=typeof globalThis&&globalThis||"undefined"!=typeof self&&se
         outline: none;
       }
       .content .container {
-        padding: 0 20px 20px 20px;
+        padding: 0;
       }
       :host([card]) .content .container {
-        padding: 0 20px 20px 20px;
+        padding: 0;
       }
       .content .buttons {
         box-sizing: border-box;
