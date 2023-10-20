@@ -147,7 +147,7 @@ const e="undefined"!=typeof globalThis&&globalThis||"undefined"!=typeof self&&se
         outline: none;
       }
       .content .container {
-        padding: 8px 24px 20px 24px;
+        padding: 0 20px 20px 20px;
       }
       :host([card]) .content .container {
         padding: 0 20px 20px 20px;
