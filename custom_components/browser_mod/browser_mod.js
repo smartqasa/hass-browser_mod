@@ -146,12 +146,25 @@ const e="undefined"!=typeof globalThis&&globalThis||"undefined"!=typeof self&&se
       .content {
         outline: none;
       }
+
+      @media (max-width: 600px) {
+        ha-dialog {
+          --popup-padding: 0 5px 5px 5px;
+        }
+      }
+      @media (min-width: 601px) {
+        ha-dialog {
+          --popup-padding: 0 20px 20px 20px;
+        }
+      }
+      
       .content .container {
-        padding: 0 20px 20px 20px;
+        padding: var(--popup-padding);
       }
       :host([card]) .content .container {
-        padding: 0 20px 20px 20px;
+        padding: var(--popup-padding);
       }
+      
       .content .buttons {
         box-sizing: border-box;
         display: flex;
