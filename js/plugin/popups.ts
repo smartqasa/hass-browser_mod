@@ -286,7 +286,7 @@ class BrowserModPopup extends LitElement {
             ha-dialog {
                 --dialog-surface-position: static;
                 --dialog-content-position: static;
-                --vertical-align-dialog: flex-start;
+                --vertical-align-dialog: center;
                 --dialog-surface-margin-top: 0;
                 --dialog-content-padding: 0;
 
@@ -355,11 +355,12 @@ class BrowserModPopup extends LitElement {
                 --mdc-dialog-max-width: 100vw;
                 --mdc-dialog-min-height: 100%;
                 --mdc-dialog-max-height: 100%;
-                --mdc-shape-medium: 0px;
+                --mdc-shape-medium: 0;
                 --vertical-align-dialog: flex-end;
-                --ha-dialog-border-radius: 0px;
-                --dialog-surface-margin-top: 0px;
+                --ha-dialog-border-radius: 0;
+                --dialog-surface-margin-top: 0;
             }
+
             :host([fullscreen]) .content {
                 height: calc(100vh - var(--header-height) - var(--footer-height) - 2 * var(--padding-y) - 16px);
             }
@@ -378,7 +379,9 @@ class BrowserModPopup extends LitElement {
                     --mdc-dialog-max-height: 100%;
                     --vertical-align-dialog: flex-end;
                     --ha-dialog-border-radius: 0;
+                    --dialog-surface-margin-top: 2rem;
                 }
+
                 :host([wide]) .content {
                     width: 100vw;
                 }
@@ -386,7 +389,7 @@ class BrowserModPopup extends LitElement {
 
             @media all and (min-width: 600px) and (min-height: 501px) {
                 ha-dialog {
-                    --dialog-surface-margin-top: 40px;
+                    --dialog-surface-margin-top: 0;
                 }
             }
         `;
