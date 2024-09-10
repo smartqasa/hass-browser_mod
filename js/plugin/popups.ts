@@ -221,7 +221,7 @@ class BrowserModPopup extends LitElement {
                               <span slot="title" .title="${this.title}">${this.title}</span>
                               ${this.dismissable
                                   ? html`
-                                        <ha-icon-button dialogAction="cancel" class="dismiss-icon">
+                                        <ha-icon-button dialogAction="cancel" slot="navigationIcon">
                                             <ha-icon .icon=${"mdi:close"}></ha-icon>
                                         </ha-icon-button>
                                     `
@@ -335,6 +335,12 @@ class BrowserModPopup extends LitElement {
                 display: flex;
             }
 
+            ha-dialog-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
             ha-dialog-header > span {
                 font-size: var(--sq-dialog-header-font-size, 24px);
                 font-weight: var(--sq-dialog-header-font-weight, 300);
@@ -363,12 +369,6 @@ class BrowserModPopup extends LitElement {
 
             :host([fullscreen]) .content {
                 height: calc(100vh - var(--header-height) - var(--footer-height) - 2 * var(--padding-y) - 16px);
-            }
-
-            .dismiss-icon {
-                position: absolute;
-                right: 16px; /* Move it to the right side with some padding */
-                top: 16px; /* Adjust as needed */
             }
 
             @media all and (max-width: 450px), all and (max-height: 500px) {
