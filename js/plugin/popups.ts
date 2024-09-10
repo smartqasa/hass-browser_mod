@@ -339,6 +339,7 @@ class BrowserModPopup extends LitElement {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                padding: 16px;
             }
 
             ha-dialog-header > span {
@@ -346,7 +347,12 @@ class BrowserModPopup extends LitElement {
                 font-weight: var(--sq-dialog-header-font-weight, 300);
                 overflow: hidden;
                 text-overflow: ellipsis;
-                cursor: default;
+                white-space: nowrap;
+                flex: 1; /* Allow the title to take up remaining space */
+            }
+
+            .dismiss-icon {
+                margin-left: 16px; /* Space between title and button */
             }
 
             :host([wide]) ha-dialog {
