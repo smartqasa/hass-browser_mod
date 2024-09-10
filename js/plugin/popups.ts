@@ -221,7 +221,7 @@ class BrowserModPopup extends LitElement {
                               <span slot="title" .title="${this.title}">${this.title}</span>
                               ${this.dismissable
                                   ? html`
-                                        <ha-icon-button dialogAction="cancel" slot="navigationIcon">
+                                        <ha-icon-button dialogAction="cancel" class="dismiss-icon">
                                             <ha-icon .icon=${"mdi:close"}></ha-icon>
                                         </ha-icon-button>
                                     `

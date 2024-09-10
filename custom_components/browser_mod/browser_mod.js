@@ -78,7 +78,7 @@ const e="undefined"!=typeof globalThis&&globalThis||"undefined"!=typeof self&&se
                           <ha-dialog-header slot="heading">
                               <span slot="title" .title="${this.title}">${this.title}</span>
                               ${this.dismissable?H`
-                                        <ha-icon-button dialogAction="cancel" slot="navigationIcon">
+                                        <ha-icon-button dialogAction="cancel" class="dismiss-icon">
                                             <ha-icon .icon=${"mdi:close"}></ha-icon>
                                         </ha-icon-button>
                                     `:""}
