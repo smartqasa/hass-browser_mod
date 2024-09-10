@@ -1,9 +1,10 @@
 {
-  "compilerOptions": {
-    "target": "es2017",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true
-  }
+    "compilerOptions": {
+        "target": "es2017",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "outDir": "./build-temp" // Temporary build output location for TypeScript files
+    }
 }

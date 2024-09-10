@@ -134,37 +134,21 @@ const e="undefined"!=typeof globalThis&&globalThis||"undefined"!=typeof self&&se
       ha-dialog {
         --dialog-surface-position: static;
         --dialog-content-position: static;
-        --vertical-align-dialog: center;
-        --dialog-surface-margin-top: 0;
+        --vertical-align-dialog: flex-start;
+        --dialog-surface-margin-top: 40px;
         --dialog-content-padding: 0;
 
         --ha-dialog-border-radius: var(--popup-border-radius, 28px);
         --padding-x: var(--popup-padding-x, 24px);
         --padding-y: var(--popup-padding-y, 20px);
       }
-      
-      .content {
-        outline: none;
-      }
 
-      @media (max-width: 600px) {
-        ha-dialog {
-          --popup-padding: 0 5px 5px 5px;
-        }
-      }
-      @media (min-width: 601px) {
-        ha-dialog {
-          --popup-padding: 0 20px 20px 20px;
-        }
-      }
-      
       .content .container {
-        padding: var(--popup-padding);
+        padding: 8px 24px 20px 24px;
       }
       :host([card]) .content .container {
-        padding: var(--popup-padding);
+        padding: 8px 8px 20px 8px;
       }
-      
       .content .buttons {
         box-sizing: border-box;
         display: flex;
@@ -196,8 +180,6 @@ const e="undefined"!=typeof globalThis&&globalThis||"undefined"!=typeof self&&se
       }
 
       ha-dialog-header > span {
-        font-size: var(--sq-dialog-header-font-size, 24px);
-        font-weight: var(--sq-dialog-header-font-weight, 300);
         overflow: hidden;
         text-overflow: ellipsis;
         cursor: default;
@@ -243,7 +225,7 @@ const e="undefined"!=typeof globalThis&&globalThis||"undefined"!=typeof self&&se
 
       @media all and (min-width: 600px) and (min-height: 501px) {
         ha-dialog {
-          --dialog-surface-margin-top: 0;
+          --dialog-surface-margin-top: 40px;
         }
       }
     `}}t([le()],He.prototype,"open",void 0),t([le()],He.prototype,"content",void 0),t([le()],He.prototype,"title",void 0),t([le({reflect:!0})],He.prototype,"actions",void 0),t([le({reflect:!0})],He.prototype,"card",void 0),t([le()],He.prototype,"right_button",void 0),t([le()],He.prototype,"left_button",void 0),t([le()],He.prototype,"dismissable",void 0),t([le({reflect:!0})],He.prototype,"wide",void 0),t([le({reflect:!0})],He.prototype,"fullscreen",void 0),t([le()],He.prototype,"_style",void 0),t([he("ha-dialog")],He.prototype,"dialog",void 0),customElements.get("browser-mod-popup")||customElements.define("browser-mod-popup",He);const Ne=e=>class extends e{constructor(){super(),$e(),this._popupEl=document.createElement("browser-mod-popup"),document.body.append(this._popupEl),this._popupEl.addEventListener("hass-more-info",(async e=>{e.stopPropagation();const t=await be();this._popupEl.do_close(),t.dispatchEvent(e)})),this._popupEl.addEventListener("hass-action",(async e=>{var t,i,o,s,n,r;("tap"===e.detail.action&&je.has(null===(i=null===(t=e.detail.config)||void 0===t?void 0:t.tap_action)||void 0===i?void 0:i.action)||"hold"===e.detail.action&&je.has(null===(s=null===(o=e.detail.config)||void 0===o?void 0:o.hold_action)||void 0===s?void 0:s.action)||"double_tap"===e.detail.action&&je.has(null===(r=null===(n=e.detail.config)||void 0===n?void 0:n.double_tap_action)||void 0===r?void 0:r.action))&&this._popupEl.do_close(),e.stopPropagation();(await be()).dispatchEvent(e)}));window.addEventListener("popstate",(async e=>{var t,i,o;const s=null===(t=e.state)||void 0===t?void 0:t.browserModPopup;s&&(s.open||(null===(i=this._popupEl)||void 0===i?void 0:i.open)&&(null===(o=this._popupEl)||void 0===o?void 0:o.dismissable)&&this._popupEl.do_close())}))}showPopup(...e){(async()=>{var t;this._popupEl.open&&await this._popupEl.do_close(),void 0===(null===(t=history.state)||void 0===t?void 0:t.browserModPopup)&&history.replaceState({browserModPopup:{open:!1}},""),history.pushState({browserModPopup:{open:!0}},""),await this._popupEl.setupDialog(...e),this._popupEl.openDialog()})()}closePopup(...e){this._popupEl.closeDialog(),this.showMoreInfo("")}async showMoreInfo(e,t=!1,i=void 0){const o=await be();if(o.dispatchEvent(new CustomEvent("hass-more-info",{bubbles:!0,composed:!0,cancelable:!1,detail:{entityId:e,ignore_popup_card:i}})),t){await new Promise((e=>setTimeout(e,50)));const e=o.shadowRoot.querySelector("ha-more-info-dialog");e&&(e.large=!0)}}};var Be="2.3.1";const ze=[{name:"entity",label:"Entity",selector:{entity:{}}},{name:"title",label:"Title",selector:{text:{}}},{name:"size",selector:{select:{mode:"dropdown",options:["normal","wide","fullscreen"]}}},{type:"grid",schema:[{name:"right_button",label:"Right button",selector:{text:{}}},{name:"left_button",label:"Left button",selector:{text:{}}}]},{type:"grid",schema:[{name:"right_button_action",label:"Right button action",selector:{object:{}}},{name:"left_button_action",label:"Left button action",selector:{object:{}}}]},{type:"grid",schema:[{name:"dismissable",label:"User dismissable",selector:{boolean:{}}},{name:"timeout",label:"Auto close timeout (ms)",selector:{number:{mode:"box"}}}]},{type:"grid",schema:[{name:"dismiss_action",label:"Dismiss action",selector:{object:{}}},{name:"timeout_action",label:"Timeout action",selector:{object:{}}}]},{name:"style",label:"CSS style",selector:{text:{multiline:!0}}}];class We extends ne{constructor(){super(...arguments),this._selectedTab=0,this._cardGUIMode=!0,this._cardGUIModeAvailable=!0}setConfig(e){this._config=e}connectedCallback(){super.connectedCallback(),Ee()}_handleSwitchTab(e){this._selectedTab=parseInt(e.detail.index,10)}_configChanged(e){e.stopPropagation(),this._config&&(this._config=Object.assign({},e.detail.value),this.dispatchEvent(new CustomEvent("config-changed",{detail:{config:this._config}})))}_cardConfigChanged(e){if(e.stopPropagation(),!this._config)return;const t=Object.assign({},e.detail.config);this._config=Object.assign(Object.assign({},this._config),{card:t}),this._cardGUIModeAvailable=e.detail.guiModeAvailable,this.dispatchEvent(new CustomEvent("config-changed",{detail:{config:this._config}}))}_toggleCardMode(e){var t;null===(t=this._cardEditorEl)||void 0===t||t.toggleMode()}_deleteCard(e){this._config&&(this._config=Object.assign({},this._config),delete this._config.card,this.dispatchEvent(new CustomEvent("config-changed",{detail:{config:this._config}})))}_cardGUIModeChanged(e){e.stopPropagation(),this._cardGUIMode=e.detail.guiMode,this._cardGUIModeAvailable=e.detail.guiModeAvailable}render(){return this.hass&&this._config?H`

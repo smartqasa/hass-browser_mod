@@ -7,36 +7,42 @@ import babel from "@rollup/plugin-babel";
 const dev = process.env.ROLLUP_WATCH;
 
 module.exports = [
-  {
-    input: "js/plugin/main.ts",
-    output: {
-      file: "custom_components/browser_mod/browser_mod.js",
-      format: "es",
+    {
+        input: "js/plugin/main.ts",
+        output: {
+            file: "custom_components/browser_mod/browser_mod.js",
+            format: "es",
+        },
+        plugins: [
+            nodeResolve(),
+            json(),
+            typescript({
+                cacheRoot: "./.rpt2_cache", // Define a cache directory for rpt2
+            }),
+            babel({
+                babelHelpers: "bundled",
+                exclude: "node_modules/**",
+            }),
+            !dev && terser({ format: { comments: false } }),
+        ],
     },
-    plugins: [
-      nodeResolve(),
-      json(),
-      typescript(),
-      babel({
-        exclude: "node_modules/**",
-      }),
-      !dev && terser({ format: { comments: false } }),
-    ],
-  },
-  {
-    input: "js/config_panel/main.ts",
-    output: {
-      file: "custom_components/browser_mod/browser_mod_panel.js",
-      format: "es",
+    {
+        input: "js/config_panel/main.ts",
+        output: {
+            file: "custom_components/browser_mod/browser_mod_panel.js",
+            format: "es",
+        },
+        plugins: [
+            nodeResolve(),
+            json(),
+            typescript({
+                cacheRoot: "./.rpt2_cache", // Define a cache directory for rpt2
+            }),
+            babel({
+                babelHelpers: "bundled",
+                exclude: "node_modules/**",
+            }),
+            !dev && terser({ format: { comments: false } }),
+        ],
     },
-    plugins: [
-      nodeResolve(),
-      json(),
-      typescript(),
-      babel({
-        exclude: "node_modules/**",
-      }),
-      !dev && terser({ format: { comments: false } }),
-    ],
-  },
 ];
