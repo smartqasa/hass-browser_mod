@@ -218,6 +218,7 @@ class BrowserModPopup extends LitElement {
                 ${this.title
                     ? html`
                           <ha-dialog-header slot="heading">
+                              <span slot="title" .title="${this.title}">${this.title}</span>
                               ${this.dismissable
                                   ? html`
                                         <ha-icon-button dialogAction="cancel" slot="navigationIcon">
@@ -225,7 +226,6 @@ class BrowserModPopup extends LitElement {
                                         </ha-icon-button>
                                     `
                                   : ""}
-                              <span slot="title" .title="${this.title}">${this.title}</span>
                           </ha-dialog-header>
                       `
                     : html``}
@@ -336,6 +336,8 @@ class BrowserModPopup extends LitElement {
             }
 
             ha-dialog-header > span {
+                font-size: var(--sq-dialog-header-font-size, 24px);
+                font-weight: var(--sq-dialog-header-font-weight, 300);
                 overflow: hidden;
                 text-overflow: ellipsis;
                 cursor: default;
