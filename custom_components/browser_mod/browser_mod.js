@@ -132,7 +132,7 @@ const e="undefined"!=typeof globalThis&&globalThis||"undefined"!=typeof self&&se
                 --dialog-surface-position: static;
                 --dialog-content-position: static;
                 --vertical-align-dialog: flex-start;
-                --dialog-surface-margin-top: 40px;
+                --dialog-surface-margin-top: 0;
                 --dialog-content-padding: 0;
 
                 --ha-dialog-border-radius: var(--popup-border-radius, 28px);
@@ -145,10 +145,10 @@ const e="undefined"!=typeof globalThis&&globalThis||"undefined"!=typeof self&&se
             }
 
             .content .container {
-                padding: 8px 24px 20px 24px;
+                padding: 0 1.5rem 1.5rem 1.5rem;
             }
             :host([card]) .content .container {
-                padding: 8px 8px 20px 8px;
+                padding: 0 1.5rem 1.5rem 1.5rem;
             }
             .content .buttons {
                 box-sizing: border-box;
