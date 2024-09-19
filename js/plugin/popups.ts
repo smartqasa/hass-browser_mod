@@ -173,7 +173,7 @@ class BrowserModPopup extends LitElement {
             timeout_action,
         };
 
-        console.log("Dismiss Action set:", dismiss_action);
+        //console.log("Dismiss Action set:", dismiss_action);
 
         this.wide = size === "wide" ? "" : undefined;
         this.fullscreen = size === "fullscreen" ? "" : undefined;
