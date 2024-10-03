@@ -3,6 +3,7 @@ import { customElement, property, query } from "lit/decorators.js";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import { provideHass, loadLoadCardHelpers, hass_base_el, selectTree } from "../helpers";
 import { loadHaForm } from "../helpers";
+import { deviceType } from "../device-info";
 
 const CLOSE_POPUP_ACTIONS = new Set(["assist", "more-info"]);
 
@@ -270,6 +271,7 @@ class BrowserModPopup extends LitElement {
     }
 
     static get styles() {
+        const padding = deviceType === "phone" ? 1 : 1.5;
         return css`
             /* Classes from haStyleDialog */
             ha-dialog {
@@ -303,10 +305,10 @@ class BrowserModPopup extends LitElement {
             }
 
             .content .container {
-                padding: 0 1.5rem 1.5rem 1.5rem;
+                padding: 0 ${padding}rem ${padding}rem ${padding}rem;
             }
             :host([card]) .content .container {
-                padding: 0 1.5rem 1.5rem 1.5rem;
+                padding: 0 ${padding}rem ${padding}rem ${padding}rem;
             }
             .content .buttons {
                 box-sizing: border-box;
@@ -365,7 +367,9 @@ class BrowserModPopup extends LitElement {
             }
 
             :host([fullscreen]) .content {
-                height: calc(100vh - var(--header-height) - var(--footer-height) - 2 * var(--padding-y) - 16px);
+                height: calc(
+                    100vh - var(--header-height) - var(--footer-height) - 2 * var(--padding-y) - ${padding}rem
+                );
             }
 
             @media all and (max-width: 450px), all and (max-height: 500px) {
